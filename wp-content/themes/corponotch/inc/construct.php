@@ -373,7 +373,9 @@ if ( ! function_exists( 'corponotch_custom_header' ) ) :
 		if ( ! is_home() && is_front_page() ) {
 			return;
 		}
-		
+		// if ( is_page("Start Your Case") ) {
+		// 	return;
+		// }
 		$header_layout = corponotch_theme_option( 'header_layout', 'normal-header' );
 		$image = get_header_image() ? get_header_image() : get_template_directory_uri() . '/assets/uploads/banner.jpg';
 		if ( is_singular() ) {
@@ -395,9 +397,12 @@ if ( ! function_exists( 'corponotch_custom_header' ) ) :
 						</div>
 					<?php endif; ?>
                 </div><!-- .custom-header-content -->
+				<?php if(is_page("Start Your Case")): ?>
+					add_action( 'corponotch_site_content_start_action', 'corponotch_site_content_start', 10 );
+				<?php endif; ?>
+
         	</div><!-- .wrapper -->
         </div><!-- .custom-header-content-wrapper -->
-
 
 		<?php
 	}

@@ -103,7 +103,7 @@ if ( ! function_exists( 'corponotch_setup' ) ) :
 	       	array(
 	           	'name' => esc_html__( 'Orange', 'corponotch' ),
 	           	'slug' => 'orange',
-	           	'color' => '#ed6510',
+	           	'color' => '#c69e4d',
 	       	),
 	       	array(
 	           	'name' => esc_html__( 'Gray', 'corponotch' ),

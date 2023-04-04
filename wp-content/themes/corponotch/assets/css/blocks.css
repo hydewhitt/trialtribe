@@ -247,7 +247,7 @@ p.has-drop-cap:not(:focus)::first-letter {
 .wp-block-button__link {
 	padding: 16px 40px;
     font-weight: bold;
-    background-color: #ed6510; 
+    background-color: #c69e4d; 
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
@@ -356,7 +356,7 @@ p.has-drop-cap:not(:focus)::first-letter {
 }
 
 .has-orange-background-color {
-    background-color: #ed6510;
+    background-color: #c69e4d;
 }
 
 .has-gray-background-color {
@@ -370,7 +370,7 @@ p.has-drop-cap:not(:focus)::first-letter {
 }
 
 .has-orange-color {
-    color: #ed6510;
+    color: #c69e4d;
 }
 
 .has-gray-color {
