@@ -128,6 +128,7 @@ if ( ! function_exists( 'corponotch_render_slider_section' ) ) :
                                 if ( ! empty( $slider_btn_label ) ) : ?>
                                     <div class="read-more">
                                         <a href="<?php echo esc_url( $content['url'] ); ?>"><?php echo esc_html( $slider_btn_label ); ?></a>
+                                        <p>In Under 30 Seconds</p>
                                     </div>
                                 <?php endif;
 

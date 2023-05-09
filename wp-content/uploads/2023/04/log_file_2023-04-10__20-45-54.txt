@@ -1,0 +1,53 @@
+
+---Downloaded files---
+The import files for: Default were successfully downloaded!
+Initial max execution time = 120
+Files info:
+Site URL = http://localhost/trialtribe
+Data file = C:\xampp\htdocs\trialtribe/wp-content/uploads/2023/04/demo-content-import-file_2023-04-10__20-45-54.xml
+Widget file = C:\xampp\htdocs\trialtribe/wp-content/uploads/2023/04/demo-widgets-import-file_2023-04-10__20-45-54.json
+Customizer file = C:\xampp\htdocs\trialtribe/wp-content/uploads/2023/04/demo-customizer-import-file_2023-04-10__20-45-54.dat
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Sidebar : 
+
+Search - No Title - Imported
+Recent Posts - No Title - Imported
+Recent Comments - No Title - Imported
+Archives - No Title - Imported
+Categories - No Title - Imported
+Meta - No Title - Imported
+
+Footer Widget 1 : 
+
+Text - About Us - Imported
+
+Footer Widget 2 : 
+
+Categories - Categories - Imported
+
+Footer Widget 3 : 
+
+Recent Posts - Recent Posts - Imported
+
+Footer Widget 4 : 
+
+Gallery - Gallery - Imported
+
+
+
+---Importing customizer settings---
+Error: The customizer import file is not suitable for current theme. You can only import customizer settings for the same theme or a child theme.
+
+---ocdi/after_import---
+

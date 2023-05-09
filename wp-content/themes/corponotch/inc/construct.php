@@ -38,6 +38,8 @@ if ( ! function_exists( 'corponotch_head' ) ) :
 				<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 			<?php endif; ?>
 			<?php wp_head(); ?>
+			<link rel="stylesheet" id="jquery-slick-css" href="/assets/css/slick.min.css" type="text/css" media="all">
+			<link rel="stylesheet" id="jquery-slick-theme-css" href="/assets/css/slick-theme.min.css" type="text/css" media="all">
 		</head>
 	<?php }
 endif;
@@ -382,7 +384,7 @@ if ( ! function_exists( 'corponotch_custom_header' ) ) :
 			$image = has_post_thumbnail() ? get_the_post_thumbnail_url( get_the_id(), 'full' ) : $image;
 		}
 		?>
-
+		
         <div class="inner-header-image <?php echo ( 'absolute-header' == $header_layout ) ? 'inner-header-absolute' : ''; ?>" style="background-image: url( '<?php echo esc_url( 'http://localhost/trialtribe/wp-content/uploads/2023/04/abstractbg4.jpg' ); ?>' )">
         	<div class="overlay"></div>
         	<div class="wrapper">

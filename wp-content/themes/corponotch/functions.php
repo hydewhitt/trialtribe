@@ -359,3 +359,13 @@ if ( class_exists( 'WooCommerce' ) ) {
 if ( class_exists( 'OCDI_Plugin' ) ) {
     require get_template_directory() . '/inc/demo-import.php';
 }
+
+/**
+ * Open Source Slick Carousel
+ */
+add_action( 'wp_enqueue_scripts', 'slick_register_styles' );
+function slick_register_styles() {
+	wp_enqueue_style( 'slick-css', untrailingslashit( get_template_directory_uri() ) . '/assets/css/slick.css', [], false, 'all' );
+	wp_enqueue_style( 'slick-theme-css', untrailingslashit( get_template_directory_uri() ) . '/assets/css/slick-theme.css', ['slick-css'], false, 'all' );
+	wp_enqueue_script( 'carousel-js', untrailingslashit( get_template_directory_uri() ) . '/assets/js/slick.js', ['jquery', 'slick-js'], filemtime( untrailingslashit( get_template_directory() ) . '/assets/js/slick.js' ), true );
+}
