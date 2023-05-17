@@ -15,6 +15,30 @@
 get_header(); 
 $enable_front_page = corponotch_pro_theme_option( 'enable_front_page' );
 
+$query = new WP_Query(
+	array(
+		'post_type'              => 'page',
+		'title'                  => 'Start Your Case',
+		'post_status'            => 'all',
+		'posts_per_page'         => 1,
+		'no_found_rows'          => true,
+		'ignore_sticky_posts'    => true,
+		'update_post_term_cache' => false,
+		'update_post_meta_cache' => false,
+		'orderby'                => 'post_date ID',
+		'order'                  => 'ASC',
+	)
+);
+
+if ( ! empty( $query->post ) ) {
+	$page_got_by_title = $query->post;
+} else {
+	$page_got_by_title = null;
+}
+$page_id = $page_got_by_title->ID;
+$start_your_case_url = get_permalink( $page_id );
+
+
 if ( ( is_front_page() && $enable_front_page ) || ! is_front_page() ) : ?>
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen" />
 	<div class="single-template-wrapper wrapper page-section">
@@ -33,46 +57,53 @@ if ( ( is_front_page() && $enable_front_page ) || ! is_front_page() ) : ?>
 				endwhile; // End of the loop.
 				?>
 				<?php if(is_page("Contact Us")) : 
-					$start_your_case_url = "http://trialtribe.com/start-your-case";
+					$phone = get_template_directory_uri() . '/assets/uploads/trial-tribe-phone.png';
+					$office = get_template_directory_uri() . '/assets/uploads/trial-tribe-office.png';
+					$instagram = get_template_directory_uri() . '/assets/uploads/trial-tribe-instagram.png';
+					$email = get_template_directory_uri() . '/assets/uploads/trial-tribe-email.png';
+					$youtube = get_template_directory_uri() . '/assets/uploads/trial-tribe-youtube.png';
+
 					?>
 					<hr>
 					<div class="contact-container">
 						<div class="contact-element">
 							<div class="contact-element-icon">
 								<a href="tel:(817)400-5000">
-									<svg class="icon icon-phone-o" aria-hidden="true" role="img"> <use href="#icon-phone-o" xlink:href="#icon-phone-o"></use> </svg>	                		
+									<img src="<?php echo esc_url( $phone ); ?>"> 	                		
 								</a>
 							</div>
 							<div class="contact-element-label">
 								<a href="tel:(817)400-5000">
-									<h3>(817) 400-5000</h3>
+									<h3 class="contact-element-label">(817) 400-5000</h3>
 								</a>
-								<li>Call or Text</li>
-								<li>Available 24 7 365</li>
+								<a href="tel:(817)400-5000">
+									<li class="call-or-text">Call or Text</li>
+									<li class="call-or-text">Available 24 7 365</li>
+								</a>
 							</div>
 						</div>
 						<div class="contact-element">
 							<div class="contact-element-icon">
-							<a href="mailto:info@trialtribe.com">
-	                			<svg class="icon icon-envelope-o " aria-hidden="true" role="img"> <use href="#icon-envelope-o" xlink:href="#icon-envelope-o"></use> </svg>	                		
+								<a href="mailto:info@trialtribe.com">
+								<img src="<?php echo esc_url( $email ); ?>"> 	                		
 							</a>
 							</div>
 							<div class="contact-element-label">
 								<a href="mailto:info@trialtribe.com">
-									<h3>info@trialtribe.com</h3>
+									<h3 class="contact-element-label">Info@TrialTribe.com</h3>
 								</a>
 							</div>
 						</div>
 						<div class="contact-element">
 							<div class="contact-element-icon">
-								<a href="tel:(817)400-5000">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/> <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/> </svg>	                		
-								</a>
+								
+								<img src="<?php echo esc_url( $office ); ?>"> 	                		
+								
 							</div>
 							<div class="contact-element-label">
-								<h3>600 W. 6th St.</h3>
-								<h3>Sut. 400</h3>
-								<h3>Fort Worth, TX 76102</h3>
+								<h3 class="contact-element-label-address">600 W. 6th St.</h3>
+								<h3 class="contact-element-label-address">Ste. 400</h3>
+								<h3 class="contact-element-label-address">Fort Worth, TX 76102</h3>
 							</div>
 						</div>
 					</div>
@@ -81,18 +112,22 @@ if ( ( is_front_page() && $enable_front_page ) || ! is_front_page() ) : ?>
 						<h2 class="social-label">Follow Us</h2>
 						<div class="social-contact-container">
 							<div class="social-contact">
-								<a href="https://instagram.com" class="customize-unpreviewable">
+								<a href="https://www.instagram.com/trialtribe/" class="customize-unpreviewable">
 									<span class="screen-reader-text">instagram</span>
-									<svg class="icon icon-instagram " aria-hidden="true" role="img"> <use href="#icon-instagram" xlink:href="#icon-instagram"></use> </svg>
+									<img class="social-element-icon" src="<?php echo esc_url( $instagram ); ?>"> 	                		
 								</a>
-								<h3>trialtribe</h3>
+								<a href="https://www.instagram.com/trialtribe/" class="customize-unpreviewable">
+									<h3 class="social-contact-label">trialtribe</h3>
+								</a>
 							</div>
 							<div class="social-contact">
-								<a href="https://instagram.com" class="customize-unpreviewable">
-									<span class="screen-reader-text">youtube</span>
-									<svg class="icon icon-youtube " aria-hidden="true" role="img"> <use href="#icon-youtube" xlink:href="#icon-youtube"></use> </svg>
+								<a href="https://www.youtube.com/@HydeTrialTribe/featured" class="customize-unpreviewable social-link-contact-us">
+									<span class="screen-reader-text" >youtube</span>
+									<img class="social-element-icon" src="<?php echo esc_url( $youtube ); ?>"> 	                		
 								</a>
-								<h3>hydetrialtribe</h3>
+								<a href="https://www.youtube.com/@HydeTrialTribe/featured" class="customize-unpreviewable">
+									<h3 class="social-contact-label">hydetrialtribe</h3>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -183,6 +218,9 @@ if ( ( is_front_page() && $enable_front_page ) || ! is_front_page() ) : ?>
 									<a class="state-link" href="<?php echo $start_your_case_url ?>">
 									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Missouri</li>
 									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Montana</li>
+									</a>
 								</ul>
 							</div>
 							<div class="state-column">
@@ -260,6 +298,166 @@ if ( ( is_front_page() && $enable_front_page ) || ! is_front_page() ) : ?>
 								<a class="state-link" href="<?php echo $start_your_case_url ?>">
 								<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Wyoming</li>
 								</a>
+							</div>
+						</div>
+						<div class="states-mobile">
+							<div class="state-column-mobile">
+								<ul>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Alabama</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Alaska</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Arizona</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Arkansas</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> California</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Colorado</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Connecticut</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Delaware</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Florida</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Georgia</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Hawaii</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Idaho</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Illinois</li>
+									</a>
+								
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Indiana</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Iowa</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Kansas</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Kentucky</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Louisiana</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Maine</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Maryland</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Massachusetts</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Michigan</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Minnesota</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Mississippi</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Missouri</li>
+									</a>
+									
+							</div>
+							<div class="state-column-mobile">
+								<ul>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Montana</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Nebraska</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Nevada</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> New Hampshire</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> New Jersey</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> New Mexico</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> New York</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> North Carolina</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> North Dakota</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Ohio</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Oklahoma</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Oregon</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Pennsylvania</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Rhode Island</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> South Carolina</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> South Dakota</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Tennessee</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Texas</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Utah</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Vermont</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Virginia</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Washington</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> West Virginia</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Wisconsin</li>
+									</a>
+									<a class="state-link" href="<?php echo $start_your_case_url ?>">
+									<li class="state"><svg class="icon icon-location-o " aria-hidden="true" role="img"> <use href="#icon-location-o" xlink:href="#icon-location-o"></use> </svg> Wyoming</li>
+									</a>
 							</div>
 						</div>
 					</div>	

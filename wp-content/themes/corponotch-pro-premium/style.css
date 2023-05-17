@@ -82,13 +82,15 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	overflow-y: hidden;
 	vertical-align: middle;
 	background-color: #fff;
-	position:fixed;
 	display: table;
 	width: 100%;
-	top:0;
 	height: 100%;
 	min-height: 100%;
 	z-index:9999;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .loader-container {
@@ -98,6 +100,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	z-index: 12;
 	text-align:center;
 	text-transform: uppercase;
+	background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
 }
 
 #preloader {
@@ -240,7 +243,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 html {
-	font-family: sans-serif;
+	font-family: BlackerPro;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust:     100%;
 	background: #f8f8f8;
@@ -248,7 +251,7 @@ html {
 
 body {
 	margin: 0;
-	font-family: 'Poppins', sans-serif;
+	font-family: BlackerPro;
 	font-weight: 400;
 }
 
@@ -358,7 +361,7 @@ h6 {
 	color: #484848;
 	margin: 16px 0;
 	line-height: 1.3;
-	font-family: 'Poppins', sans-serif;
+	font-family: BlackerPro;
 	font-weight: 400;
 }
 
@@ -412,7 +415,7 @@ code,
 kbd,
 pre,
 samp {
-	font-family: monospace, monospace;
+	font-family: BlackerPro;
 	font-size: 1em;
 }
 
@@ -545,7 +548,7 @@ address {
 
 pre {
 	background: #f6f7fb;
-	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-family: BlackerPro;
 	font-size: 16px;
 	font-size: 0.9375rem;
 	line-height: 1.6;
@@ -559,7 +562,7 @@ code,
 kbd,
 tt,
 var {
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-family: BlackerPro;
 	font-size: 16px;
 	font-size: 0.9375rem;
 }
@@ -936,7 +939,7 @@ a:active {
 }
 #masthead.site-header.sticky-header.nav-shrink .site-title a,
 .site-title a {
-    font-family: 'Poppins', sans-serif;
+    font-family: BlackerPro;
     font-weight: 900;
     font-size: 2rem;
     letter-spacing: 1px;
@@ -947,7 +950,7 @@ a:active {
     margin: 10px 0 0;
     color: #696969;
     line-height: 1;
-    font-family: 'Poppins', sans-serif;
+    font-family: BlackerPro;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 0.5px;
@@ -1345,6 +1348,8 @@ button.dropdown-toggle {
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
+
+
 .clear:before,
 .clear:after,
 .entry-content:before,
@@ -1441,23 +1446,23 @@ ol.comment-list:after,
 }
 .widget_categories ul li a:before {
 	content: "\f07c";
-    font-family: 'fontawesome';
+    font-family: BlackerPro;
     margin-right: 10px;
 }
 .widget_archive ul li a:before {
 	content: "\f187";
-    font-family: 'fontawesome';
+    font-family: BlackerPro;
     margin-right: 10px;
 }
 .widget_recent_entries ul li a:before,
 .widget_pages ul li a:before {
 	content: "\f15c";
-    font-family: 'fontawesome';
+    font-family: BlackerPro;
     margin-right: 10px;
 }
 .widget_recent_comments ul li:before {
 	content: "\f0e6";
-    font-family: 'fontawesome';
+    font-family: BlackerPro;
     margin-right: 10px;
 }
 /* Make sure select elements fit in widgets. */
@@ -1906,7 +1911,7 @@ body.author img {
     font-weight: 500;
     line-height: 1;
     color: #fffb00;
-    font-family: 'Poppins', sans-serif;
+    font-family: BlackerPro;
 }
 .page-header small {
     font-size: 12px;
@@ -2077,7 +2082,7 @@ ol.comment-list {
     text-transform: capitalize;
     color: #484848;
     font-size: 18px;
-    font-family: 'Poppins', sans-serif;
+    font-family: BlackerPro;
     font-weight: 700;
 }
 .comment-meta .url:hover,
@@ -2325,7 +2330,7 @@ section {
 	max-width: 800px;
 	margin: auto; 
 	font-size: 18px;
-	font-family: 'Poppins', sans-serif;
+	font-family: BlackerPro;
 }
 #secondary .section-description,
 #colophon .section-description {
@@ -2738,7 +2743,7 @@ ul.trail-items li {
     font-weight: 400;
 }
 ul.trail-items li:not(:last-child):after {
-	font-family: 'fontawesome';
+	font-family: BlackerPro;
 	content: "\f105";
 	color: #fff;
 	margin: 0 10px;
@@ -3211,25 +3216,25 @@ span.cat-links a{
 }
 span.posted-on:before {
 	content: "\f073";
-	font-family: 'fontawesome';
+	font-family: BlackerPro;
 	margin-right: 5px;
 }
 span.cat-links:before {
 	content: "\f115";
-	font-family: 'fontawesome';
+	font-family: BlackerPro;
 	margin-right: 5px;
 	color: #777;
 	font-size: 14px;
 }
 span.vcard.author a:before {
 	content: "\f2c0";
-	font-family: 'fontawesome';
+	font-family: BlackerPro;
 	margin-right: 5px;
 	color: #777;
 }
 span.comments-link a:before {
 	content: "\f0e6";
-	font-family: 'fontawesome';
+	font-family: BlackerPro;
 	margin-right: 5px;
 	color: #777;
 }
@@ -3890,7 +3895,7 @@ ul.post-categories li {
     display: block;
     font-size: 22px;
     color: #fffb00;
-    font-family: 'Poppins', sans-serif;
+    font-family: BlackerPro;
     font-weight: 500;
     margin-bottom: 5px;
 }
@@ -3969,7 +3974,7 @@ ul.post-categories li {
 	font-size: 16px;
 }
 .hero-section .read-more a {
-	color: #221f3c;
+	color: black;
 	background: #fffb00;
 	border-radius: 5px;
 }
@@ -4064,7 +4069,7 @@ ul.post-categories li {
 .short-cta-section .section-header .section-title {
 	color: #fff;
 	font-size: 36px;
-	font-family: Tahoma, sans-serif;
+	font-family: BlackerPro;
 }
 .short-cta-section .wrapper .read-more {
 	width: 25%;
@@ -5206,7 +5211,7 @@ body.body-font-7 .wpcf7 textarea {
 # 					Footer
 --------------------------------------------------------------*/
 #colophon {
-    background-color: #221f3c;
+    background-color: #000000;
 }
 .footer-widgets-area {
     padding: 80px 0 50px;
@@ -5448,7 +5453,7 @@ body.body-font-7 .wpcf7 textarea {
 .widget_product_categories .product-categories li a:before,
 .woocommerce .woocommerce-widget-layered-nav-list .woocommerce-widget-layered-nav-list__item a:before {
     content: "\f115";
-    font-family: 'fontawesome';
+    font-family: BlackerPro;
     margin-right: 10px;
 }
 .woocommerce ul.cart_list li a, 
@@ -5467,7 +5472,7 @@ body.body-font-7 .wpcf7 textarea {
 	list-style: none;
 }
 .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link a:before {
-	font-family: "fontawesome";
+	font-family: BlackerPro;
 	content: "\f090";
 	margin-right: 10px;
 }
@@ -5924,7 +5929,7 @@ body.body-font-7 .wpcf7 textarea {
 	}
 	#masthead.site-header.sticky-header.nav-shrink ul.nav-menu > li.button:hover a {
 		background: #fff;
-		color: #fffb00;
+		color: #000000;
 	}
 	#search form.search-form input {
 	    background-color: transparent;
@@ -6804,42 +6809,87 @@ h2.section-title .text-yellow {
   /* Contact section */
 
 .contact-container {
-	display: flex !important;
-	flex-direction: row !important;
+	display: flex ;
+	flex-direction: row ;
 
 }
 .contact-element {
-	display: flex !important;
-	flex-direction: row !important;
+	display: flex ;
+	flex-direction: row ;
+	margin: 0 auto 0 auto;
 }
+.contact-element-icon {
+	height: 4em;
+	width: 4em;
+	margin: auto 5px auto 0;
+}
+
+.contact-element-label {
+	font-size: 1.5rem;
+	margin: auto 0 auto 0;
+}
+.contact-element-label-address {
+	font-size: 1.5rem;
+	margin: auto 0 auto 0;
+}
+.contact-element-label:hover {
+	color: #fffb00
+}
+.call-or-text {
+	font-size: 1rem;
+	color: #484848
+}
+
 
   /* Social section */
 
 .social-container{
-	display: flex !important;
-	flex-direction: column !important;
+	display: flex ;
+	flex-direction: column ;
+}
+
+.social-element-icon {
+	height: 4em;
+	width: 4em;
+	margin: auto 5px auto 0;
 }
 .social-label{
 	text-align: center;
+	color: #fff;
 }
 .social-contact-container{
-	display: flex !important;
-	flex-direction: row !important;
+	display: flex ;
+	flex-direction: row ;
 	margin: 0 auto 0 auto;
 }
+.social-link-contact-us {
+	margin-left: 15px;
+}
+.social-contact-label:hover {
+	color: #fffb00;
+}
+
 .social-contact{
-	display: flex !important;
-	flex-direction: row !important;
+	display: flex ;
+	flex-direction: row;
 }
-.state-column {
-	float: left;
-	width: 25%;
-}
+
   
 /* Find a personal injury lawyer by state section */
 .states-header {
 	text-align: center;
-	font-size: 2.5rem;
+	font-size: 3.15rem;
+	color:#fff;
+}
+
+.state-column {
+	float: left;
+	width: 25%;
+}
+
+.state-column-mobile {
+	float: left;
+	width: 50%;
 }
 .states-break {
 	width: 96%;
@@ -6847,9 +6897,16 @@ h2.section-title .text-yellow {
 
 .states-info-text {
 	text-align: center;
+	color:#fff;
 }
 
 .states:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.states-mobile:after {
 	content: "";
 	display: table;
 	clear: both;
@@ -6880,220 +6937,151 @@ a.state-link:hover > li > svg {
 	fill:#FFF;
 }
 
-/* Main page Black*/
-
-body.custom-background{
-	background-color:black;
+@media screen and (min-width: 600px) {
+	.states-mobile{
+		display: none;
+	}	
 }
-
-#top-search {
-display:none;
-}
-/* Desktop specific */
-@media screen and (min-width: 1024px) {
-/* Rounded Submenus */
-.main-navigation ul.sub-menu {
-	border-radius: 5px;
-}
-/* Fixing Start your case button text */
-#masthead .main-navigation ul.nav-menu > li.button a {
-	color: black ;
+@media screen and (max-width: 599px) {
+	.states {
+		display: none;
+	}	
+	.state{
+		font-size: 14px;
 	}
-/* Fixing Hover for start your case button*/
-	#masthead .main-navigation ul.nav-menu > li.button a:hover {
-	color: #fff ;
-	}
-
-/* Needed to fix the Start your case when header turns to sticky */
-#masthead.site-header.sticky-header.nav-shrink .main-navigation .header-sticky-button a {
-	color: black !important;
 }
 
+
+/*******************************************************************************  START CUSTOM CSS ************************************************************************************************  */
+
+
+/**************************************************** 
+ * NAV MENU **************************************
+ ************/
+
+ #masthead > div {
+	height:100%;
 }
-/* Ending Media check for desktop */
-
-
-/* More header fixes for sticky header */
+#site-navigation {
+	height:100%
+}
+#masthead.site-header.sticky-header.nav-shrink {
+	background: #000000 !important;
+}
 #masthead.absolute-header .main-navigation a:hover {
-color: #fffb00;
+    color: #fffb00;
+}
+#masthead.site-header.sticky-header.nav-shrink .wrapper{background:#000000;}
+
+@media screen and (min-width: 1900px) {
+	#masthead {
+	height: 170px;
+}
+	.main-navigation li.menu-item a {
+	font-size: 18px;
+	font-family:"Poppins";
+	text-transform: uppercase;
+}
+	
+	/* Custom logo */
+.custom-logo{
+	height: 100px;
+	max-height:150px !important;
+}
+	
+
+	.main-navigation a {
+	font-size: 24px;
+}
+.custom-logo{
+	height: 150px;
+	max-height:150px !important;
+}
+	
+	.site-branding {
+    display: flex;
+    align-items: center;
+    height: 174px;
+    float: left;
+}
+	.main-navigation{
+	    margin-top: 35px;
+	}
+	
+	.main-navigation, .main-navigation ul.nav-menu, .main-navigation li {
+		height:100%;
+	}
+
+	ul.sub-menu li:hover a {
+		color: #fffb00 !important;
+	}
+	ul.sub-menu li a {
+			font-size: 16px !important;
+
+	}
 }
 
-
-/* Carousel */
-
-/* Another header sticky button fix */
-.header-sticky-button {
-color: black !important;
-}
-
-/* Fix for the Start your case button */
-.custom-header-content-wrapper.slide-item .custom-header-content .read-more a {
-color: black
-}
-
-/* Fix for the call  to action button section */
-.cta-section .read-more a, .cta-section .section-header .section-title {
-color: black;
-}
-/* Fix for the call  to action button section */
-.cta-section .read-more:hover a, .cta-section .section-header .section-title {
-color: white;
-}
-
-/* Fix for the introduction button section */
-#introduction a.more-btn:hover {
-color: #fff
-}
-
-/* Fix for the back to top Arrow */
-.backtotop svg {
-fill: #0d0d0d;
-}
-
-/* Fix for the back to top Arrow */
-.backtotop:hover svg {
-fill: #fff;
-}
-
-
-/* Fix for the We are trial Tribe btn */
-#introduction a.more-btn {
-color: black;
-}
-
-/* Introduction Section -- We Care. We Fight. We Win. */
-
-#introduction > div > article > div > div.featured-image > a > img {
-	border-radius: 15px;
-}
-
-/* Skills Section --  */
-/* Round the Thumbnail */
-#skills > div > div > div.skills-background > img {
-		border-radius: 15px;
-
-}
-
-/* Play button black */
-#skills > div > div > div.skills-background > a > svg {
-fill: black !important;
-}
-
-/* Custom Styling for our counters */
-.counter i.fa {
-color: #fffb00
-}
-
-/* Custom Styling for our counters */
-.counter div.counter-value {
-color: #fffb00
-}
-
-/* Custom Styling for our counters */
-.counter h2.counter-label {
-color: black !important
-}
-/* Custom Styling for portfolio section */
-
-#portfolio > div > div.section-content.column-3 > article > div > div > div.featured-image > a > img {
-border-radius:15px;
-height: 16em;
-}
-
-#portfolio .gallery .featured-image .overlay {
-	border-radius: 13px;
-}
-
-#portfolio .gallery .featured-image a.more-btn {
-color: black
-}
-
-/* Custom Styling for portfolio section */
-#portfolio .gallery .featured-image a.more-btn:hover {
-background-color: black
-}
-
-/* Custom Styling for Start Your Case */
-
-/* Custom Styling for Choice Buttons */
-span .fw-choice .fw-radio-row{
-background: gray
-}
-
-#multi-step-form [data-type=fw-radio] label, #multi-step-form [data-type=fw-checkbox] label {
-display: flex;
-cursor: pointer;
-position: relative;
-padding-left: 35px;
-margin-right: 15px;
-font-size: 1.2em;
-line-height: 28px;
-font-weight: 400;
-	background: grey;
-	width: 200px;
-	height: 50px
-}
-
-
-#multi-step-form [data-type=fw-radio] label, #multi-step-form [data-type=fw-checkbox] label {
-display: flex;
-cursor: pointer;
-position: relative;
-padding-left: 35px;
-margin-right: 15px;
-font-size: 1.2em;
-line-height: 28px;
-font-weight: 400;
-	background: grey;
-	width: 200px;
-	height: 50px;
-	color: black !important; 
-	border-radius: 5px;
-	transition: all .4s ease-in-out;
-}
-
-#multi-step-form [data-type=fw-radio] label, #multi-step-form [data-type=fw-checkbox] label {
-display: flex;
-text-align: center;
-cursor: pointer;
-position: relative;
-	padding-top: 10px;
-padding-left: 0px !important;
-	vertical-align: middle !important;
-	margin-right: 15px;
-font-size: 1.2em;
-line-height: 28px;
-font-weight: 400;
-	background: grey;
-	width: 200px;
-	height: 75px;
-	color: black !important; 
-	border-radius: 5px;
-	transition: all .4s ease-in-out;
-}
-
-
-#multi-step-form .fw-radio-row input[type=radio]:checked+label{
-background: #fff;
-}
-
-/* Radio Button Disappear */
-#multi-step-form .fw-radio-row input[type=radio]:checked+label:before{
-display:none  !important;
-}
-#multi-step-form [data-type=fw-radio] label:before, #multi-step-form [data-type=fw-checkbox] label:before{
-display: none !important;
-}
-
-
-
-/* Next Step button*/
-#multi-step-form .fw-wizard-buttons button, #multi-step-form .fw-wizard-buttons .fw-btn {
-color: black !important;
-border-radius: 5px;
-}
-
-/* Big Call to Action */
-#content > div.page-section.cta-section.relative.left-align > div.wrapper > div {
-
-}
+/*******************************************************************************  END CUSTOM CSS *************************************************************************************************/
+/* Next Button */
+#syc-button {
+	display: inline-block ;
+	padding: .75rem 1.25rem ;
+	border-radius: 80px ;
+	color: #fff ;
+	text-transform: uppercase ;
+	letter-spacing: .15rem ;
+	transition: all .3s ;
+	position: relative ;
+	overflow: hidden ;
+	  z-index: 1 ;
+	  margin:10px auto ;
+	  border:0px ;
+	  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" ;
+	   font-size: 1.125rem ;
+	 font-weight: 600 ;
+		  width:300px ;
+	  height: 75px
+  }
+  
+  #syc-button:before {
+	  content: '' ;
+	  position: absolute ;
+	  bottom: 0 ;
+	  left: 0 ;
+	  width: 0% ;
+	  height: 100% ;
+	  background-color: darken(#fffb00, 15%) ;
+	  transition: all .3s ;
+	  border-radius: 10rem ;
+	  z-index: -1 ;
+  }
+  
+  #syc-button {
+	  font: 22px ;
+	  display: inline-block ;
+	  padding: 1em 2em ;
+	  text-align: center ;
+	  color: #000000 ;
+	  background: #fffb00 ; /* default color */
+  
+	  /* "to left" / "to right" - affects initial color */
+	  background: linear-gradient(to left, #fffb00  50%, #FFF 50%) right ;
+	  background-size: 205% ;
+	  transition: .5s ease-out ;
+  }
+  #syc-button:hover {
+	  background-position: left ;
+  
+  }
+  
+  .start-your-case-label {
+	  font-size: 24px ;
+	  font-weight: 700;
+	  margin: 0px;
+	  text-transform: none;
+	  letter-spacing:0;
+  }
+  .start-your-case-info{
+	  margin-bottom:10px;
+	  text-transform: none;
+  }
