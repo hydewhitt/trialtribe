@@ -372,24 +372,15 @@ if ( ! function_exists( 'corponotch_pro_custom_header' ) ) :
 		if ( is_singular() ) {
 			$image = has_post_thumbnail() ? get_the_post_thumbnail_url( get_the_id(), 'full' ) : $image;
 		}
-		$image_height = is_page('Start Your Case') ? 'height: 850px;' : '';
 		?>
-		<?php 
-		
-		
-		?>
-        <div class="inner-header-image <?php echo ( 'absolute-header' == $header_layout ) ? 'inner-header-absolute' : ''; ?>" style="background-image: url( '<?php echo esc_url( $image ); ?>' ); <?php echo $image_height ?>">
+
+        <div class="inner-header-image <?php echo ( 'absolute-header' == $header_layout ) ? 'inner-header-absolute' : ''; ?>" style="background-image: url( '<?php echo esc_url( $image ); ?>' )">
         	<div class="overlay"></div>
         	<div class="wrapper">
-                <div class="<?php !is_page('Start Your Case') ? 'custom-header-content' : '' ?>">
+                <div class="custom-header-content">
                     <?php 
-					if(is_page('Start Your Case')){
-						gravity_form( 2, true, false, false, '', false );
-					}
-					if(!is_page('Start Your Case')){
-						echo corponotch_pro_custom_header_title();
-						corponotch_pro_add_breadcrumb(); 
-					}
+                    echo corponotch_pro_custom_header_title();
+                    corponotch_pro_add_breadcrumb(); 
                     ?>
                 </div><!-- .custom-header-content -->
         	</div><!-- .wrapper -->
