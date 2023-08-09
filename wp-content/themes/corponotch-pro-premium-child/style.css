@@ -6458,6 +6458,9 @@ body.body-font-7 .wpcf7 textarea {
 	.inner-header-image {
 		height: 600px;
 	}
+	.about-rich-header {
+		background-size: 100% 100%;
+	}
 	#custom-header .wave-saperator svg {
 		height: 200px;
 	}
@@ -6678,6 +6681,11 @@ body.body-font-7 .wpcf7 textarea {
 	}
 	.client-section .section-content article {
 		margin: 0;
+	}
+	.contact-us-header {
+		height: 150px !important;
+		background-size: 100% 150px;
+		background-repeat-y: no-repeat;
 	}
 	.inner-header-image {
 		height: 400px;

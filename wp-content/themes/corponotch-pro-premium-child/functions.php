@@ -240,13 +240,26 @@ if ( ! function_exists( 'corponotch_pro_custom_header' ) ) :
 		if ( is_singular() ) {
 			$image = has_post_thumbnail() ? get_the_post_thumbnail_url( get_the_id(), 'full' ) : $image;
 		}
+        
 		$image_height = (is_page('Start Your Case') || is_page('Quick Case')) ? 'height: 850px;' : '';
 		?>
 		<?php 
-		
-		
-		?>
-        <div class="inner-header-image <?php echo ( 'absolute-header' == $header_layout ) ? 'inner-header-absolute' : ''; ?>" style="background-image: url( '<?php echo esc_url( $image ); ?>' ); <?php echo $image_height ?>">
+		if(is_page('Contact Us')) {
+            $image = get_stylesheet_directory_uri() . '/assets/uploads/ContactUsBannerCompressed.jpg';
+            ?> <div class="inner-header-image contact-us-header <?php echo ( 'absolute-header' == $header_layout ) ? 'inner-header-absolute' : ''; ?>" style="background-image: url( '<?php echo esc_url( $image ); ?>' ); <?php echo $image_height ?>"> <?php
+        }
+		?> 
+        <?php if(!is_page('Contact Us')){
+            $post_id = get_the_ID();
+
+            // Get the post's slug using the post ID
+            $page_slug = get_post_field('post_name', $post_id);
+            
+            // Generate the dynamic CSS class
+            $header_class = $page_slug . '-header';
+            ?><div class="inner-header-image <?php echo ( is_page('Rich Hyde, Texas Trial Attorney') == $header_layout ) ? 'about-rich-header' : ''; ?> <?php echo esc_attr($header_class); ?> <?php echo ( 'absolute-header' == $header_layout ) ? 'inner-header-absolute' : ''; ?>" style="background-image: url( '<?php echo esc_url( $image ); ?>' ); <?php echo $image_height ?>"> <?php
+        }
+        ?>
         	<div class="overlay"></div>
         	<div class="wrapper">
                 <div class="<?php (!is_page('Start Your Case') && !is_page('Quick Case')) ? 'custom-header-content' : '' ?>">
@@ -270,7 +283,7 @@ if ( ! function_exists( 'corponotch_pro_custom_header' ) ) :
                         </div>
                         <?php
                     }
-					if(!is_page('Start Your Case') && !is_page('Thank You') && !is_page('Quick Case')){
+					if(!is_page('Start Your Case') && !is_page('Thank You') && !is_page('Quick Case') && !is_page('Contact Us') && !is_page("Rich Hyde, Texas Trial Attorney")){
 						echo corponotch_pro_custom_header_title();
 						corponotch_pro_add_breadcrumb(); 
 					}

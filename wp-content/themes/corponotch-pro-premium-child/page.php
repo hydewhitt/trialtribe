@@ -56,6 +56,7 @@ if ( ( is_front_page() && $enable_front_page ) || ! is_front_page() ) : ?>
 
 				endwhile; // End of the loop.
 				?>
+					
 				<?php if(is_page("Contact Us")) : 
 					$phone = get_stylesheet_directory_uri() . '/assets/uploads/trial-tribe-phone.png';
 					$office = get_stylesheet_directory_uri() . '/assets/uploads/trial-tribe-office.png';
