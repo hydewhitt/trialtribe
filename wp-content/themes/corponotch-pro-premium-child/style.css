@@ -6891,10 +6891,30 @@ body.body-font-7 .wpcf7 textarea {
 		margin-bottom: 25px;
 	}
 	#skills .wrapper .section-content.right-align .skills-background,
-	#skills .wrapper .section-content.right-align .skills-background img,
 	#skills .wrapper .section-content.right-align .skills-container {
 		min-height: auto;
 		display: block;
+	}
+	#skills > div > div > div.skills-container > div.section-header > p {
+		display: none;
+	}
+	#skills .section-title, #skills .section-title, #skills article .entry-title a {
+		font-family: Poppins;
+	}
+	#skills > div > div > div.skills-container > div.section-header > p:before {
+		width: 15px;
+		height: 3px;
+		background: #fff;
+		display: inline-block;
+		margin-right: 10px;
+		vertical-align: middle;
+	}
+
+	#skills .wrapper .section-content.right-align .skills-background img {
+		width: 100%;
+		min-height: 500px;
+		object-fit: cover;
+		float: left;
 	}
 	.widget_contact_info ul li {
 		width: 100%;

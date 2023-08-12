@@ -768,4 +768,106 @@ if ( ! function_exists( 'corponotch_pro_render_introduction_section' ) ) :
           </div><!-- #introduction -->
       <?php 
       }
-  endif;
+endif;
+/************************************************************************************************************************************************************************************************************************************************************************* 
+
+Skills Section
+
+*************************************************************************************************************************************************************************************************************************************************************************/
+
+if ( ! function_exists( 'corponotch_pro_render_skills_section' ) ) :
+/**
+ * Start skills section
+ *
+ * @return string skills content
+ * @since CorpoNotch Pro 1.0.0
+ *
+ */
+    function corponotch_pro_render_skills_section( $content_details = array() ) {
+        if ( empty( $content_details ) )
+            return;
+
+        $image_align = corponotch_pro_theme_option( 'skills_image_align', 'left-align' );
+        $skills_image = corponotch_pro_theme_option( 'skills_image', '' );
+        $column = corponotch_pro_theme_option( 'skills_column', 'column-3' );
+        $align = corponotch_pro_theme_option( 'skills_align', 'left-align' );
+        $title = corponotch_pro_theme_option( 'skills_title', '' );
+        $sub_title = corponotch_pro_theme_option( 'skills_sub_title', '' );
+        $skills_video = corponotch_pro_theme_option( 'skills_video', '' );
+
+        ?>
+        <div id="skills" class="page-section relative">
+            <div class="wrapper">
+
+                <div class="section-content <?php echo esc_attr( $image_align ); ?> <?php echo empty( $skills_image ) ? 'no-featured-image' : ''; ?>">
+                    <?php if ( ! empty( $skills_image ) ) : ?>
+                        <div class="skills-background">
+                            <img src="<?php echo esc_url( $skills_image ); ?>">
+                            <?php if ( ! empty( $skills_video ) ) : ?>
+                                <a href="#" class="skills-play-btn">
+                                    <?php echo corponotch_pro_get_svg( array( 'icon' => 'play' ) ); ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                        <div class="skills-video-model">
+                            <div class="skills-video">
+                                <a href="#" class="skills-close-btn">
+                                    <?php echo corponotch_pro_get_svg( array( 'icon' => 'close' ) ); ?>
+                                </a>
+                                <?php echo wp_video_shortcode( array( 'src' => esc_url( $skills_video ), 'height' => 450, 'width' => 800 ) , '' ); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="skills-container">
+                        <?php if ( ! empty( $title ) || ! empty( $sub_title ) ) : ?>
+                            <div class="section-header">
+                                <?php if ( ! empty( $sub_title ) ) : ?>
+                                    <p class="sub-title"><?php echo esc_html( $sub_title ); ?></p>
+                                <?php endif;
+
+                                if ( ! empty( $title ) ) : ?>
+                                    <h2 class="section-title">A Personal Injury Lawyer is an <span style="color: #FFFB00;">Investor.</span></h2>
+                                <?php endif; ?>
+                            </div><!-- .section-header -->
+                        <?php endif; ?>
+
+                        <div class="skills-content <?php echo esc_attr( $column ); ?> <?php echo esc_attr( $align ); ?>">
+                            <?php foreach ( $content_details as $content ) : ?>
+                                <article class="hentry">
+                                    <div class="post-wrapper">
+                                        <?php if ( ! empty( $content['icon'] ) ) : ?>
+                                            <div class="skills">
+                                                <a href="<?php echo esc_url( $content['url'] ); ?>">
+                                                    <i class="fa <?php echo esc_attr( $content['icon'] ); ?>" ></i>
+                                                </a>
+                                            </div><!-- .skills -->
+                                        <?php endif; ?>
+
+                                        <div class="entry-container">
+                                            <?php if ( !empty( $content['title'] ) ) : ?>
+                                                <header class="entry-header">
+                                                    <h2 class="entry-title"><a href="<?php echo esc_url( $content['url'] ); ?>"><?php echo esc_html( $content['title'] ); ?></a></h2>
+                                                </header>
+                                            <?php endif;
+
+                                            if ( !empty( $content['excerpt'] ) ) : ?>
+                                                <div class="entry-content">
+                                                    <?php echo wp_kses_post( $content['excerpt'] ); ?>
+                                                </div><!-- .entry-content -->
+                                            <?php endif; ?>
+                                        </div><!-- .entry-container -->
+
+                                    </div><!-- .post-wrapper -->
+                                </article>
+                            <?php endforeach; ?>
+                        </div><!-- .section-content -->
+                    </div><!-- .skills-container -->
+                </div><!-- .section-content -->
+            </div><!-- .wrapper -->
+        </div><!-- #skills-posts -->
+
+    <?php 
+    }
+endif;
+  
